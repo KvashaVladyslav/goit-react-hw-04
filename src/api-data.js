@@ -7,7 +7,7 @@ export const getArticles = async (query, currentPage) => {
     params: {
       query: query,
       page: currentPage,
-      perPage: 15,
+      per_page: 15,
       client_id: "QjChZzvQMy7V7KFwb70-Lxc0HII9m00Dt5nu89gmh7o",
     },
   });

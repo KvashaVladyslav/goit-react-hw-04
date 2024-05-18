@@ -1,0 +1,17 @@
+.button {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    padding: 6px 10px;
+    cursor: pointer;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 8px;
+    width: max-content;
+    margin: 0 auto;
+}
+    
+.button:hover,
+.button:focus {
+    border: 1px solid rgb(44, 44, 65);
+    background-color: rgb(214, 214, 214);
+}

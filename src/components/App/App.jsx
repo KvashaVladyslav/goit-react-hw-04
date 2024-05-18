@@ -5,7 +5,9 @@ import SearchBar from "../SearchBar/SearchBar";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import LoadMore from "../LoadMore/LoadMore";
+import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
+import ImageModal from "../ImageModal/ImageModal";
+import css from "./App.module.css"
 
 
 export default function App() {
@@ -15,6 +17,18 @@ export default function App() {
     const [error, setError] = useState(false)
     const [page, setPage] = useState(1)
     const [searchQuery, setSearchQuery] = useState("")
+    const [modalWindow, setModalWindow] = useState(false)
+    const [targetPhoto, setTargetPhoto] = useState({alt: "", url: ""})
+
+        const handleOpenModal = (alt, url) => {
+            setTargetPhoto({alt, url})
+            setModalWindow(true)
+        }
+  
+        const handleCloseModal = () => {
+            setModalWindow(false)
+            setTargetPhoto({alt: "", url: ""})
+        }
 
     useEffect(() => {
         if (searchQuery.trim() === "") {
@@ -49,12 +63,13 @@ export default function App() {
 
 
     return (
-        <div>
+        <div className={css.container}>
             <SearchBar onSubmit={handleSearch} />
             {loader && <Loader />}
             {error && <ErrorMessage />}
-            {articles.length > 0 && <ImageGallery items={articles} />}
-            {articles.length > 0 && !loader && <LoadMore loadMore={handleLoadMore} />}
+            {articles.length > 0 && <ImageGallery items={articles} openModal={handleOpenModal} />}
+            {articles.length > 0 && !loader && <LoadMoreBtn loadMore={handleLoadMore} />}
+            <ImageModal isModalOpen={modalWindow} closeModal={handleCloseModal} targetPhoto={targetPhoto} />
         </div>
     )
 }

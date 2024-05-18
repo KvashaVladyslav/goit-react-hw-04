@@ -1,10 +1,12 @@
 import { Formik, Form, Field } from "formik"
 import toast, { Toaster } from "react-hot-toast"
 import { ImWondering } from "react-icons/im";
+import css from "./SearchBar.module.css"
+import { FcSearch } from "react-icons/fc";
 
 export default function SearchBar({ onSubmit }) {
 
-    const notify = () => toast("Search some object first", {icon: <ImWondering />})
+    const notify = () => toast("Please, enter something on the field", {icon: <ImWondering />})
     
     
     const initialValues = {query: ""}
@@ -18,16 +20,17 @@ export default function SearchBar({ onSubmit }) {
             }
             actions.resetForm()
         }}> 
-            <header>
-              <Form>
-                <Field
+            <header className={css.container}>
+                <Form className={css.form}>
+                    <Field
+                    className={css.input}
                     type="text"
                     name="query"
                     autoComplete="off"
                     autoFocus
                     placeholder="Search images and photos"
                 />
-                    <button type="submit">Search</button>
+                    <button className={css.button} type="submit"><FcSearch />Search</button>
                     <Toaster toastOptions={{style: {background: "", color: ""}}}/>
               </Form>
             </header>
