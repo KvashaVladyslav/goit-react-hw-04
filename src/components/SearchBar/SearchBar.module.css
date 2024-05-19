@@ -1,5 +1,5 @@
 .container {
-    padding: 40px;
+    padding: 100px;
     display: flex;
     justify-content: center;
     background-color: rgb(182, 153, 196);
@@ -8,19 +8,21 @@
 .form {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    background-color: white;
+    border-radius: 16px;
+    padding: 10px;
 }
 
 .input {
-    padding: 10px 12px;
-    border: 1px solid rgb(100, 100, 100);
+    padding: 0px 8px;
+    border: 1px solid transparent;
     border-radius: 8px;
     cursor: pointer;
+    background-color: rgb(255, 255, 255);
 }
 
 .input:hover,
 .input:focus {
-    border: 1px solid rgb(44, 44, 65);
     background-color: rgb(214, 214, 214);
 }
 
@@ -30,12 +32,12 @@
     align-items: center;
     padding: 6px 10px;
     cursor: pointer;
-    border: 1px solid rgb(100, 100, 100);
+    border: 1px solid transparent;
     border-radius: 8px;
+    background-color: rgb(255, 255, 255);
 }
 
 .button:hover,
 .button:focus {
-    border: 1px solid rgb(44, 44, 65);
     background-color: rgb(214, 214, 214);
 }

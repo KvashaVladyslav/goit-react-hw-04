@@ -6,15 +6,14 @@ import { FcSearch } from "react-icons/fc";
 
 export default function SearchBar({ onSubmit }) {
 
-    const notify = () => toast("Please, enter something on the field", {icon: <ImWondering />})
-    
+    const notifyEmpty = () => toast("Please, enter something on the searching field", {icon: <ImWondering />})
     
     const initialValues = {query: ""}
 
     return (
         <Formik initialValues={initialValues} onSubmit={(values, actions) => {
             if (values.query.trim() === "") {
-                notify()
+                notifyEmpty()
             } else {
                 onSubmit(values.query)
             }
@@ -30,8 +29,8 @@ export default function SearchBar({ onSubmit }) {
                     autoFocus
                     placeholder="Search images and photos"
                 />
-                    <button className={css.button} type="submit"><FcSearch />Search</button>
-                    <Toaster toastOptions={{style: {background: "", color: ""}}}/>
+                    <button className={css.button} type="submit"><FcSearch /></button>
+                    <Toaster toastOptions={{style: {background: "yellow", color: "black"}}}/>
               </Form>
             </header>
         </Formik>
